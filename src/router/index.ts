@@ -11,7 +11,7 @@ const router = createRouter({
     },{
       path: '/estructura',
       name: 'estructura',
-      component: () => import('../views/EstructuraView.vue'),
+      component: () => import('../views/ejemplosK/EstructuraView.vue'),
     },
   ],
 })
