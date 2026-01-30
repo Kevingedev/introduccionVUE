@@ -6,12 +6,14 @@ const path: string =
                     pathURL.includes("/estructura") ? "Modularidad y Estructura" :
                     pathURL.includes("/flujo") ? "Flujo de datos" :
                     pathURL.includes("/produccion") ? "Produccion" : "Home";
+                    pathURL.includes("/ejemplos") ? "ejemplos" : "Home";
 
 const navItems: {name: string, route: string}[] = [
     {name: 'Home', route: '/'},
     {name: 'Modularidad y Estructura', route: '/estructura'},
     {name: 'Flujo de datos', route: '/flujo'},
     {name: 'Produccion', route: '/produccion'},
+    {name: 'Ejemplos', route: '/ejemplos'},
 ]
 
 </script>
