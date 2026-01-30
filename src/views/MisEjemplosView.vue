@@ -5,7 +5,7 @@
 <template>
  <div>
     <p>mis ejemplos</p>
-    <MiComponente/>
+    <MiComponente/> 
  </div>
 </template>
 
