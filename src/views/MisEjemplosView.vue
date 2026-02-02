@@ -1,5 +1,5 @@
 <script setup> 
-    import MiComponente from '../components/estructura/MiComponente.vue' 
+    import MiComponente from '../components/MiComponente.vue' 
 </script> 
 
 <template>
