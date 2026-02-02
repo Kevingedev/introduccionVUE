@@ -13,7 +13,7 @@ const path = computed((): string => {
   if (pathURL.includes("/sintaxis")) return "Sintaxis";
   
   return "Home";
-});
+});  
 
 const navItems: {name: string, route: string}[] = [
     {name: 'Home', route: '/'},
