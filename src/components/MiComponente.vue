@@ -6,7 +6,7 @@
 
 
     <!--v-on cambia el valor de visible-->
-    <button @click="ocultarBoton">{{textoboton}}</button>
+    <button @click="ocultarBoton">{{ textoboton }}</button>
 
 
 
@@ -30,23 +30,44 @@
     <div class="cuadro">
 
       <!--formulario: v-model-->
-      <input v-model="text" type="text" placeholder="Escribe el nombre" />
+      <input v-model="nombreusuario" type="nombreusuario" placeholder="Escribe el nombre" />
 
-      <p>nombre ingresado: {{ text }}</p>
+      <p>nombre ingresado: {{ nombreusuario }}</p>
 
     </div>
 
+    <!-- dependencias asíncronas: <suspense> -->
+    <Suspense>
+      <!-- Contenido principal -->
+      <template #default>
+        <AsyncComponent />
+      </template>
+
+      <!-- Contenido de carga (fallback) -->
+      <template #fallback>
+        <div>Cargando contenido...</div>
+      </template>
+    </Suspense>
 
   </div>
 
 </template>
 
+
+
 <script setup>
+
 
 import { ref } from 'vue'
 
+// Definir el componente de forma asíncrona
+import { defineAsyncComponent } from 'vue';
 
-const usuarios = ref([
+const AsyncComponent = defineAsyncComponent(() =>
+  import('./componente2.vue')
+);
+
+ const usuarios = ref([
   {
     id: 1,
     nombre: "Sofía"
@@ -69,16 +90,16 @@ const usuarios = ref([
   },
 ]);
 
-const text = ref('');
+const nombreusuario = ref('');
 const visible = ref(true);
 const textoboton = ref('ocultar lista');
 
 function anadirLista() {
 
-  if (text.value != '') {
+  if (nombreusuario.value != '') {
     const user = {
       id: usuarios.value.length + 1,
-      nombre: text.value
+      nombre: nombreusuario.value
     }
     usuarios.value.push(user);
   };
@@ -96,9 +117,9 @@ function ocultarBoton() {
 
 }
 
-
 </script>
 
+<!-- Estilos scoped, solo validos en el componente -->
 <style scoped>
 .texto {
   color: blue;
