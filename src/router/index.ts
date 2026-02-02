@@ -11,11 +11,15 @@ const router = createRouter({
     },{
       path: '/estructura',
       name: 'estructura',
+<<<<<<< HEAD
       component: () => import('../views/EstructuraView.vue'),
     },{
       path: '/ejemplos',
       name: 'ejemplos',
       component: () => import('../views/MisEjemplosView.vue'),
+=======
+      component: () => import('../views/ejemplosK/EstructuraView.vue'),
+>>>>>>> 27021262b3550a67d2b5f4863c8fae2c2dca5e1d
     },
   ],
 })

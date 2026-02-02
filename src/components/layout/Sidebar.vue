@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
-const pathURL = window.location.pathname;
+const route = useRoute();
 
-const path: string = 
-                    pathURL.includes("/estructura") ? "Modularidad y Estructura" :
-                    pathURL.includes("/flujo") ? "Flujo de datos" :
-                    pathURL.includes("/produccion") ? "Produccion" : "Home";
-                    pathURL.includes("/ejemplos") ? "ejemplos" : "Home";
+const path = computed((): string => {
+  const pathURL = route.path;
+
+  if (pathURL.includes("/estructura")) return "Modularidad y Estructura";
+  if (pathURL.includes("/flujo"))      return "Flujo de datos";
+  if (pathURL.includes("/produccion")) return "Produccion";
+  
+  return "Home";
+});
 
 const navItems: {name: string, route: string}[] = [
     {name: 'Home', route: '/'},
@@ -25,8 +31,8 @@ const navItems: {name: string, route: string}[] = [
     <div class="wrapper">
 
       <nav>
-        <h2>{{ path }}</h2>
         <div class="nav-links">
+          
           <RouterLink 
             v-for="item in navItems" 
             :key="item.route" 
@@ -45,19 +51,25 @@ const navItems: {name: string, route: string}[] = [
 header {
   padding: 1rem;
   border-right: 2px solid hsl(0, 0%, 90%);
-  height: 100%;
-  width: 200px;
+  width: 100%;
 }
 nav {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
 }
 
 .nav-links {
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
+  border-radius: 0.7rem;
+  padding: 0.9rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
 }
 
 .active-link{
