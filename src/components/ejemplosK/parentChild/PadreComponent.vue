@@ -9,7 +9,7 @@ const incrementar = () => total.value++;
 <template>
   <div class="content">
 
-    <p>Total en el padre: {{ total }}</p>
+    <p>Total en el padre: {{ total  }}</p>
     <HijoComponent :cantidad="total" @sumar="incrementar" />
   </div>
 </template>
