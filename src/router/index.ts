@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'estructura',
       component: () => import('../views/ejemplosK/EstructuraView.vue'),
     },
+    {
+      path: '/sintaxis',
+      name: 'sintaxis',
+      component: () => import('../views/SintaxisView.vue'),
+    },
   ],
 })
 
