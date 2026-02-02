@@ -17,6 +17,11 @@ const router = createRouter({
       name: 'ejemplos',
       component: () => import('../views/MisEjemplosView.vue'),
     },
+    {
+      path: '/sintaxis',
+      name: 'sintaxis',
+      component: () => import('../views/SintaxisView.vue'),
+    },
   ],
 })
 
