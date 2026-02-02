@@ -12,6 +12,10 @@ const router = createRouter({
       path: '/estructura',
       name: 'estructura',
       component: () => import('../views/ejemplosK/EstructuraView.vue'),
+    },{
+      path: '/ejemplos',
+      name: 'ejemplos',
+      component: () => import('../views/MisEjemplosView.vue'),
     },
     {
       path: '/sintaxis',
