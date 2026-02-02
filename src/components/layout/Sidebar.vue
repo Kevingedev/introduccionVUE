@@ -7,20 +7,18 @@ const route = useRoute();
 const path = computed((): string => {
   const pathURL = route.path;
 
-  if (pathURL.includes("/estructura")) return "Modularidad y Estructura";
-  if (pathURL.includes("/flujo"))      return "Flujo de datos";
-  if (pathURL.includes("/produccion")) return "Produccion";
+  if (pathURL.includes("/estructura")) return "Modularidad";
   if (pathURL.includes("/sintaxis")) return "Sintaxis";
+  if (pathURL.includes("/ejemplos")) return "Ejemplos";
   
   return "Home";
 });  
 
 const navItems: {name: string, route: string}[] = [
     {name: 'Home', route: '/'},
-    {name: 'Modularidad y Estructura', route: '/estructura'},
-    {name: 'Flujo de datos', route: '/flujo'},
-    {name: 'Produccion', route: '/produccion'},
+    {name: 'Modularidad', route: '/estructura'},
     {name: 'Sintaxis', route: '/sintaxis'},
+    {name: 'Ejemplos', route: '/ejemplos'},
 ]
 
 </script>
@@ -51,7 +49,7 @@ const navItems: {name: string, route: string}[] = [
 <style scoped>
 header {
   padding: 1rem;
-  border-right: 2px solid hsl(0, 0%, 90%);
+  /* border-right: 2px solid hsl(0, 0%, 90%); */
   width: 100%;
 }
 nav {
