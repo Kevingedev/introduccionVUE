@@ -14,7 +14,7 @@ const path = computed((): string => {
   if (pathURL.includes("/ejemplos")) return "Ejemplos";
   
   return "Home";
-});
+});  
 
 const navItems: {name: string, route: string}[] = [
     {name: 'Home', route: '/'},

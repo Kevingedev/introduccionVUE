@@ -1,11 +1,12 @@
-<script setup>
-import { ref, computed } from 'vue'
-const nombre = ref('')
-const mensaje = ref('')
-const contador = ref(0)
 
-const precio = ref(0)
-const precioConIVA = computed(() => precio.value * 1.21)
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+const nombre = ref<string>('')
+const mensaje = ref<string>('')
+const contador = ref<number>(0)
+
+const precio = ref<number>(0)
+const precioConIVA = computed<number>(() => precio.value * 1.21)
 
 const actualizarMensaje = () => {
   mensaje.value = 'Mensaje actualizado'
@@ -14,8 +15,7 @@ const actualizarMensaje = () => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="card">
+  <div class="contenido">
             <!-- Interpolación -->
         <h2>Hola, {{ nombre }}</h2>
 
@@ -30,7 +30,7 @@ const actualizarMensaje = () => {
         <p>{{ mensaje }}</p>
         <p>Contador: {{ contador }}</p>
           
-          <div class="precio-box">
+          <div class="divPrecio">
               <!-- computed -->
             <input type="number" v-model="precio" class="input" />
             <p>Precio base: {{ precio }}</p>
@@ -39,17 +39,15 @@ const actualizarMensaje = () => {
           </div>
   
   </div>
- 
-  </div>
 
 </template>
 
 <style scoped>
-.card {
+.contenido {
   background: white;
   padding: 30px;
   border-radius: 15px;
-  width: 350px;
+  width: 400px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 1.5rem;
@@ -62,125 +60,22 @@ h2 {
   width: 100%;
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid #999999;
+  border: 2px solid #1d1d1d;
   margin-bottom: 15px;
   font-size: 14px;
-  transition: 0.3s;
 }
-.precio-box {
+button{
+  padding: 1rem;
+  background: #f0d1d1;
+  border-radius: 1rem;
+}
+button:hover{
+  background: #f4f6ff;
+}
+.divPrecio {
   margin-top: 20px;
-  padding: 10px;
+  padding: 40px;
   background: #f4f6ff;
   border-radius: 10px;
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
