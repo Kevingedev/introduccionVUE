@@ -4,7 +4,6 @@
 
 <template>
  <div>
-    <p>mis ejemplos</p>
     <MiComponente/> 
  </div>
 </template>
