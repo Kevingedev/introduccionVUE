@@ -4,6 +4,15 @@
     import ModalSeguro from '@/components/ejemplosK/teleport/ModalSeguro.vue';
     import NavigationButtons from '@/components/ejemplosK/NavigationButtons.vue'
     import Televisor from '@/components/ejemplosK/propsEmits/Televisor.vue'
+    import AbueloComponent from '@/components/ejemplosK/provideInjects/AbueloComponent.vue'
+    import GamerProfile from '@/components/ejemplosK/reactividad/GamerProfile.vue';
+    import ShallowRef from '@/components/ejemplosK/reactividadOpti/ShallowRef.vue';
+    import ShallowReactive from '@/components/ejemplosK/reactividadOpti/ShallowReactive.vue';
+    import Perfil from '@/components/ejemplosK/globalStatus/Perfil.vue';
+    import Contador from '@/components/ejemplosK/globalStatus/Contador.vue';    
+    import CarritoCompras from '@/components/ejemplosK/computed/carritoCompras.vue';
+    import WatchComponent from '@/components/ejemplosK/watchers/WatchComponent.vue';
+    import WatchEffectComponent from '@/components/ejemplosK/watchers/WatchEffectComponent.vue';
     import { ref, computed } from 'vue'
 
 
@@ -41,6 +50,30 @@
 
             <div id="propsEmits" v-if="item==='propsEmits'">
                 <Televisor />
+            </div>
+
+            <div id="provideInject" v-if="item==='provideInjects'">
+                <AbueloComponent />
+            </div>
+
+            <div id="reactividad" v-if="item==='reactividad'">
+                <GamerProfile />
+            </div>
+            <div id="reactividadOpti" v-if="item==='reactividadOpti'">
+                <ShallowRef />
+                <br>
+                <ShallowReactive />
+            </div>
+            <div id="estadoGlobal" v-if="item==='estadoGlobal'">
+                <Perfil />
+                <Contador />
+            </div>
+            <div id="computed" v-if="item==='computed'">
+                <CarritoCompras />
+            </div>
+            <div id="watchers" v-if="item==='watchers'">
+                <WatchComponent />
+                <WatchEffectComponent />
             </div>
             
         </div>
