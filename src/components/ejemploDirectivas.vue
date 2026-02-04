@@ -3,17 +3,11 @@
     <p class="texto">Ejemplo de uso de directivas</p>
 
 
-    <!--v-bind enlaza la imagen-->
-    <div class="cuadro">
-      imagen con v-bind
-      <img :src="image" :alt="text" width="100px">
-    </div>
-
-    <div class="cuadro">
     <!--v-on cambia el valor de visible-->
-    <button @click="ocultarBoton">{{ textoboton }}</button>
+    <button @click="ocultarBoton" class="boton">{{ textoboton }}</button>
 
 
+    <div class="cuadro">
       <!--v-if oculta o renderiza la lista-->
       <div v-if="visible">
         <ul>
@@ -26,17 +20,32 @@
         lista oculta
       </div>
 
-    
-    <!--V-on ejecuta el click-->
-    <button @click="anadirLista">añadir usuario</button>
+    </div>
 
-      <!--formulario: v-model-->
-      <input v-model="nombreusuario" type="text" placeholder="Escribe el nombre" />
+    <!--v-on ejecuta accion al clickar-->
+    <button @click="anadirLista" class="boton">añadir usuario</button>
+
+    <div class="cuadro">
+
+      <!--v-model gestiona formularios-->
+      <input v-model="nombreusuario" type="nombreusuario" placeholder="Escribe el nombre" />
 
       <p>nombre ingresado: {{ nombreusuario }}</p>
 
     </div>
 
+    <!-- dependencias asíncronas: <suspense> -->
+    <Suspense>
+      <!-- Contenido principal -->
+      <template #default>
+        <AsyncComponent />
+      </template>
+
+      <!-- Contenido de carga (fallback) -->
+      <template #fallback>
+        <div>Cargando contenido...</div>
+      </template>
+    </Suspense>
 
   </div>
 
@@ -46,8 +55,15 @@
 
 <script setup>
 
+
 import { ref } from 'vue'
 
+// Definir el componente de forma asíncrona
+import { defineAsyncComponent } from 'vue';
+
+const AsyncComponent = defineAsyncComponent(() =>
+  import('./componente2.vue')
+);
 
  const usuarios = ref([
   {
@@ -76,13 +92,6 @@ const nombreusuario = ref('');
 const visible = ref(true);
 const textoboton = ref('ocultar lista');
 
-const image = ref(
-  new URL("../assets/logo.png", import.meta.url).href
-); //vite no carga archivos locales
-
-const text = ref("Logo");
-
-
 function anadirLista() {
 
   if (nombreusuario.value != '') {
@@ -108,20 +117,39 @@ function ocultarBoton() {
 
 </script>
 
-<!-- Estilos globales, validos en todos los componentes -->
-<style >
+<!-- Estilos scoped, solo validos en el componente -->
+<style scoped>
 .texto {
   color: blue;
-  font-size: 18px;
+  font-size: 2rem;
   margin: 20px;
 }
 
 .cuadro {
-  border-style: solid;
   border-radius: 10px;
   border-width: 1px;
   padding: 20px;
   margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.cuadro p{
+  font-size: large;
+}
+
+.cuadro li{
+  font-size: large;
+}
+
+.boton{
+  background-color: #008CBA; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 15px 30px; /* Tamaño interno */
+  border: none; /* Quitar borde predeterminado */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano */
+  font-size: 16px;
+}
+
 </style>
 
