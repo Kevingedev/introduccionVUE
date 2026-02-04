@@ -3,14 +3,17 @@
     <p class="texto">Ejemplo de uso de directivas</p>
 
 
+    <!--v-bind enlaza la imagen-->
+    <div class="cuadro">
+      imagen con v-bind
+      <img :src="image" :alt="text" width="100px">
+    </div>
 
-
+    <div class="cuadro">
     <!--v-on cambia el valor de visible-->
     <button @click="ocultarBoton">{{ textoboton }}</button>
 
 
-
-    <div class="cuadro">
       <!--v-if oculta o renderiza la lista-->
       <div v-if="visible">
         <ul>
@@ -23,31 +26,17 @@
         lista oculta
       </div>
 
-    </div>
-
+    
+    <!--V-on ejecuta el click-->
     <button @click="anadirLista">añadir usuario</button>
 
-    <div class="cuadro">
-
       <!--formulario: v-model-->
-      <input v-model="nombreusuario" type="nombreusuario" placeholder="Escribe el nombre" />
+      <input v-model="nombreusuario" type="text" placeholder="Escribe el nombre" />
 
       <p>nombre ingresado: {{ nombreusuario }}</p>
 
     </div>
 
-    <!-- dependencias asíncronas: <suspense> -->
-    <Suspense>
-      <!-- Contenido principal -->
-      <template #default>
-        <AsyncComponent />
-      </template>
-
-      <!-- Contenido de carga (fallback) -->
-      <template #fallback>
-        <div>Cargando contenido...</div>
-      </template>
-    </Suspense>
 
   </div>
 
@@ -57,15 +46,8 @@
 
 <script setup>
 
-
 import { ref } from 'vue'
 
-// Definir el componente de forma asíncrona
-import { defineAsyncComponent } from 'vue';
-
-const AsyncComponent = defineAsyncComponent(() =>
-  import('./componente2.vue')
-);
 
  const usuarios = ref([
   {
@@ -94,6 +76,13 @@ const nombreusuario = ref('');
 const visible = ref(true);
 const textoboton = ref('ocultar lista');
 
+const image = ref(
+  new URL("../assets/logo.png", import.meta.url).href
+); //vite no carga archivos locales
+
+const text = ref("Logo");
+
+
 function anadirLista() {
 
   if (nombreusuario.value != '') {
@@ -119,8 +108,8 @@ function ocultarBoton() {
 
 </script>
 
-<!-- Estilos scoped, solo validos en el componente -->
-<style scoped>
+<!-- Estilos globales, validos en todos los componentes -->
+<style >
 .texto {
   color: blue;
   font-size: 18px;
@@ -132,6 +121,7 @@ function ocultarBoton() {
   border-radius: 10px;
   border-width: 1px;
   padding: 20px;
+  margin: 20px;
 }
 </style>
 
