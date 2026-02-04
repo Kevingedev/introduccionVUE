@@ -117,11 +117,34 @@ function ocultarBoton() {
 }
 
 .cuadro {
-  border-style: solid;
-  border-radius: 10px;
+ border-radius: 10px;
   border-width: 1px;
   padding: 20px;
   margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cuadro p{
+  font-size: large;
+}
+
+.cuadro li{
+  font-size: large;
+}
+
+button {
+  background-color: #008CBA;
+  color: white;
+  padding: 15px 30px;
+  margin: 15px;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input {
+   padding: 15px 30px;
 }
 </style>
 
