@@ -14,17 +14,20 @@
     <button @click="ocultarBoton">{{ textoboton }}</button>
 
 
-      <!--v-if oculta o renderiza la lista-->
+     <!--v-if oculta o renderiza la lista-->
       <div v-if="visible">
         <ul>
           <!--v-for recorre la lista-->
           <li v-for="usuario in usuarios" :key="usuario.id">{{ usuario.nombre }}</li>
         </ul>
+
       </div>
 
       <div v-else>
         lista oculta
       </div>
+
+
 
     
     <!--V-on ejecuta el click-->
