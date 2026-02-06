@@ -16,9 +16,11 @@ watch(pregunta, (nuevoValor, viejoValor) => {
 </script>
 
 <template>
-    <h2>Watch Example</h2>
-    <input v-model="pregunta" placeholder="Haz una pregunta" />
-    <p>{{ aviso }}</p>
+    <div class="card">
+      <h2>Watch Example</h2>
+      <input v-model="pregunta" placeholder="Haz una pregunta" />
+      <p>{{ aviso }}</p>
+    </div>
 </template>
 
 <style scoped>
@@ -31,5 +33,11 @@ input {
 p {
   margin-top: 10px;
   font-weight: bold;
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
 }
 </style>
