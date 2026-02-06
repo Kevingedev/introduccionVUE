@@ -21,7 +21,12 @@ const router = createRouter({
       path: '/sintaxis',
       name: 'sintaxis',
       component: () => import('../views/SintaxisView.vue'),
+    },{
+      path: '/user/:id?',
+      name: 'UserDetail',
+      component: () => import('../views/MisEjemplosView.vue'),
     },
+
   ],
 })
 
