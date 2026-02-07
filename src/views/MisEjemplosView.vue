@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script setup>
 import { ref } from 'vue'
 
@@ -21,6 +22,24 @@ const activo = ref(1)
     <MiComponente3 v-if="activo === 3" />
     <MiComponente4 v-if="activo === 4" />
   </div>
+=======
+<script setup> 
+    import MiComponente from '../components/ejemploDirectivas.vue'
+    import MiComponente2 from '../components/ejemploClases.vue' 
+    import MiComponente3 from '../components/ejemploRutas.vue' 
+    import MiComponente4 from '../components/ejemploAsincronia.vue' 
+    import MiComponente5 from '../components/formulario.vue' 
+</script> 
+
+<template>
+ <div>
+    <MiComponente5/> 
+    <MiComponente/>
+    <MiComponente2/> 
+    <MiComponente3/> 
+    <MiComponente4/> 
+ </div>
+>>>>>>> f7c252dd990b5b0ea87dbd1f8d7eace9b6efc2c1
 </template>
 
 

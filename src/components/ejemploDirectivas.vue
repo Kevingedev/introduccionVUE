@@ -3,49 +3,43 @@
     <p class="texto">Ejemplo de uso de directivas</p>
 
 
-    <!--v-on cambia el valor de visible-->
-    <button @click="ocultarBoton" class="boton">{{ textoboton }}</button>
-
+    <!--v-bind enlaza la imagen-->
+    <div class="cuadro">
+      imagen con v-bind
+      <img :src="image" :alt="text" width="100px">
+    </div>
 
     <div class="cuadro">
-      <!--v-if oculta o renderiza la lista-->
+    <!--v-on cambia el valor de visible-->
+    <button @click="ocultarBoton">{{ textoboton }}</button>
+
+
+     <!--v-if oculta o renderiza la lista-->
       <div v-if="visible">
         <ul>
           <!--v-for recorre la lista-->
           <li v-for="usuario in usuarios" :key="usuario.id">{{ usuario.nombre }}</li>
         </ul>
+
       </div>
 
       <div v-else>
         lista oculta
       </div>
 
-    </div>
 
-    <!--v-on ejecuta accion al clickar-->
-    <button @click="anadirLista" class="boton">añadir usuario</button>
 
-    <div class="cuadro">
+    
+    <!--V-on ejecuta el click-->
+    <button @click="anadirLista">añadir usuario</button>
 
-      <!--v-model gestiona formularios-->
-      <input v-model="nombreusuario" type="nombreusuario" placeholder="Escribe el nombre" />
+      <!--formulario: v-model-->
+      <input v-model="nombreusuario" type="text" placeholder="Escribe el nombre" />
 
       <p>nombre ingresado: {{ nombreusuario }}</p>
 
     </div>
 
-    <!-- dependencias asíncronas: <suspense> -->
-    <Suspense>
-      <!-- Contenido principal -->
-      <template #default>
-        <AsyncComponent />
-      </template>
-
-      <!-- Contenido de carga (fallback) -->
-      <template #fallback>
-        <div>Cargando contenido...</div>
-      </template>
-    </Suspense>
 
   </div>
 
@@ -55,9 +49,7 @@
 
 <script setup>
 
-
 import { ref } from 'vue'
-
 
 
  const usuarios = ref([
@@ -87,6 +79,13 @@ const nombreusuario = ref('');
 const visible = ref(true);
 const textoboton = ref('ocultar lista');
 
+const image = ref(
+  new URL("../assets/logo.png", import.meta.url).href
+); //vite no carga archivos locales
+
+const text = ref("Logo");
+
+
 function anadirLista() {
 
   if (nombreusuario.value != '') {
@@ -112,16 +111,16 @@ function ocultarBoton() {
 
 </script>
 
-<!-- Estilos scoped, solo validos en el componente -->
-<style scoped>
+<!-- Estilos globales, validos en todos los componentes -->
+<style >
 .texto {
   color: blue;
-  font-size: 2rem;
+  font-size: 18px;
   margin: 20px;
 }
 
 .cuadro {
-  border-radius: 10px;
+ border-radius: 10px;
   border-width: 1px;
   padding: 20px;
   margin: 20px;
@@ -136,15 +135,19 @@ function ocultarBoton() {
   font-size: large;
 }
 
-.boton{
-  background-color: #008CBA; /* Color de fondo */
-  color: white; /* Color del texto */
-  padding: 15px 30px; /* Tamaño interno */
-  border: none; /* Quitar borde predeterminado */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor a mano */
+button {
+  background-color: #008CBA;
+  color: white;
+  padding: 15px 30px;
+  margin: 15px;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
   font-size: 16px;
 }
 
+input {
+   padding: 15px 30px;
+}
 </style>
 
