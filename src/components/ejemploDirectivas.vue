@@ -58,12 +58,7 @@
 
 import { ref } from 'vue'
 
-// Definir el componente de forma asíncrona
-import { defineAsyncComponent } from 'vue';
 
-const AsyncComponent = defineAsyncComponent(() =>
-  import('./componente2.vue')
-);
 
  const usuarios = ref([
   {
