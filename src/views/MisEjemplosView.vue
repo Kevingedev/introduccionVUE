@@ -1,45 +1,36 @@
-<<<<<<< HEAD
 <script setup>
 import { ref } from 'vue'
 
 import MiComponente from '../components/ejemploDirectivas.vue'
-import MiComponente2 from '../components/ejemploClases.vue'
-import MiComponente3 from '../components/ejemploRutas.vue'
-import MiComponente4 from '../components/ejemploAsincronia.vue'
+import MiComponente2 from '../components/ejemploClases.vue' 
+import MiComponente3 from '../components/ejemploRutas.vue' 
+import MiComponente4 from '../components/ejemploAsincronia.vue' 
+import MiComponente5 from '../components/formulario.vue' 
 
-const activo = ref(1)
+// Variable que controla qué componente se muestra
+const componenteActivo = ref('formulario')
+
+// Función para cambiar el componente activo
+function mostrarComponente(nombre) {
+    componenteActivo.value = nombre
+}
 </script>
 
 <template>
   <div>
-    <button @click="activo = 1">Directivas</button>
-    <button @click="activo = 2">Clases</button>
-    <button @click="activo = 3">Rutas</button>
-    <button @click="activo = 4">Async</button>
+    <!-- Botones para seleccionar el componente -->
+    <button @click="mostrarComponente('formulario')">Formulario</button>
+    <button @click="mostrarComponente('directivas')">Directivas</button>
+    <button @click="mostrarComponente('clases')">Clases</button>
+    <button @click="mostrarComponente('rutas')">Rutas</button>
+    <button @click="mostrarComponente('asincronia')">Asincronía</button>
 
-    <MiComponente v-if="activo === 1" />
-    <MiComponente2 v-if="activo === 2" />
-    <MiComponente3 v-if="activo === 3" />
-    <MiComponente4 v-if="activo === 4" />
+    <!-- Componentes con v-if según el activo -->
+    <MiComponente5 v-if="componenteActivo === 'formulario'" />
+    <MiComponente v-if="componenteActivo === 'directivas'" />
+    <MiComponente2 v-if="componenteActivo === 'clases'" />
+    <MiComponente3 v-if="componenteActivo === 'rutas'" />
+    <MiComponente4 v-if="componenteActivo === 'asincronia'" />
   </div>
-=======
-<script setup> 
-    import MiComponente from '../components/ejemploDirectivas.vue'
-    import MiComponente2 from '../components/ejemploClases.vue' 
-    import MiComponente3 from '../components/ejemploRutas.vue' 
-    import MiComponente4 from '../components/ejemploAsincronia.vue' 
-    import MiComponente5 from '../components/formulario.vue' 
-</script> 
-
-<template>
- <div>
-    <MiComponente5/> 
-    <MiComponente/>
-    <MiComponente2/> 
-    <MiComponente3/> 
-    <MiComponente4/> 
- </div>
->>>>>>> f7c252dd990b5b0ea87dbd1f8d7eace9b6efc2c1
 </template>
-
 
