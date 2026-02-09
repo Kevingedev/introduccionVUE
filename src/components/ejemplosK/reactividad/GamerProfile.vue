@@ -20,6 +20,7 @@ const jugador = reactive<Jugador>({
   equipo: 'Alpha'
 })
 
+
 // torefs es Para desestructurar un objeto reactivo
 // si hacemos: const { nombre } = jugador; pierde reactividad
 // con toRefs, 'nombre' y 'nivel' siguen siendo reactivos
