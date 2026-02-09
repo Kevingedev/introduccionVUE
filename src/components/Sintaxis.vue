@@ -15,9 +15,9 @@ const actualizarMensaje = () => {
 </script>
 
 <template>
-  <div class="contenido">
+  <div class="contenido" :class="{ activo: contador > 0 }" >
             <!-- Interpolación -->
-        <h2>Hola, {{ nombre }}</h2>
+        <h2 :style="{ color: contador > 2 ? 'red' : 'black' }">Hola, {{ nombre }}</h2>
 
         <!-- v-model -->
         <input v-model="nombre" placeholder="Cambia tu nombre" class="input" />
@@ -28,12 +28,12 @@ const actualizarMensaje = () => {
         </button>
 
         <p>{{ mensaje }}</p>
-        <p>Contador: {{ contador }}</p>
+        <p :class="{ destacado: contador >= 3 }">Contador: {{ contador }}</p>
           
           <div class="divPrecio">
               <!-- computed -->
             <input type="number" v-model="precio" class="input" />
-            <p>Precio base: {{ precio }}</p>
+            <p :class="{ caro: precioConIVA > 100 }">Precio base: {{ precio }}</p>
             <p>Precio con IVA: {{ precioConIVA }}</p>
 
           </div>
@@ -44,38 +44,38 @@ const actualizarMensaje = () => {
 
 <style scoped>
 .contenido {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  width: 400px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-size: 1.5rem;
-}
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-.input {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 2px solid #1d1d1d;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-button{
-  padding: 1rem;
-  background: #f0d1d1;
-  border-radius: 1rem;
-}
-button:hover{
-  background: #f4f6ff;
-}
-.divPrecio {
-  margin-top: 20px;
-  padding: 40px;
-  background: #f4f6ff;
+  padding: 100px;
   border-radius: 10px;
+  background: #dbdde0;
+  font-size: 1.5rem;
+
+}
+
+.activo {
+  border: 2px solid #42b883;
+}
+
+.input {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  background: #42b883;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.destacado {
+  font-weight: bold;
+  color: blue;
+}
+
+.caro {
+  color: red;
+  font-weight: bold;
 }
 </style>
