@@ -27,18 +27,17 @@
 
 
       <!--v-if oculta o renderiza la lista segun la variable visible-->
-      <div v-if="visible">
-        <ul>
-          <!--v-for recorre la lista, se ha añadido v-on para eliminar un usuario al hacer click en el nombre-->
-          <li v-for="usuario in usuarios" :key="usuario.id" @click="eliminarUsuario(usuario.id)">{{ usuario.nombre }}
-          </li>
-        </ul>
+      <ul v-if="visible">
+        <!--v-for recorre la lista-->
+        <!--v-on  elimina un usuario al hacer click en el nombre-->
+        <li v-for="usuario in usuarios" :key="usuario.id" @click="eliminarUsuario(usuario.id)">{{ usuario.nombre }}
+        </li>
+      </ul>
 
-      </div>
-
-      <div v-else>
+      <!--v-if y v-else estan juntos-->
+      <p v-else>
         lista oculta
-      </div>
+      </p>
 
     </div>
 
@@ -105,7 +104,7 @@ function eliminarUsuario(id) {
 }
 
 function ocultarlista() {
-  
+
   if (visible.value == true) {
     visible.value = false;
     textoboton.value = 'mostrar lista';
