@@ -10,27 +10,26 @@
     </div>
 
 
-    <!------------------------lista----------------------------->
+    <!------------------------entrada----------------------------->
     <div class="cuadro">
 
       <!--input con v-model recoge el nombre-->
       <input v-model="nombreusuario" type="text" placeholder="Escribe el nombre" />
 
-      <!--V-on se ejecuta al hacer click-->
+      <!--V-on se ejecuta al hacer click y añade el usuario a la lista-->
       <button @click="anadirUsuario">añadir usuario</button>
 
       <p>nombre ingresado: {{ nombreusuario }}</p>
 
-
-      <!--v-on cambia el valor de la variable visible-->
+      <!------------------------lista----------------------------
+      v-on cambia el valor de la variable visible al clickar---->
       <button @click="ocultarlista">{{ textoboton }}</button>
 
 
-      <!--v-if oculta o renderiza la lista-->
+      <!--v-if oculta o renderiza la lista segun la variable visible-->
       <div v-if="visible">
         <ul>
-          <!--v-for recorre la lista-->
-          <!--v-on elimina un usuario-->
+          <!--v-for recorre la lista, se ha añadido v-on para eliminar un usuario al hacer click en el nombre-->
           <li v-for="usuario in usuarios" :key="usuario.id" @click="eliminarUsuario(usuario.id)">{{ usuario.nombre }}
           </li>
         </ul>
