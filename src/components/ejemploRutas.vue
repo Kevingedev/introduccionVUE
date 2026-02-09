@@ -4,6 +4,7 @@
     <p>dirigirse a (localhost)/user/:id?</p>
     <p>ID del usuario: {{ userId }}</p>
   </div>
+
 </template>
 
 <script setup>
