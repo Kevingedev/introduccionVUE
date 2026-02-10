@@ -74,7 +74,7 @@ const filteredUsers = computed(()=>{
                     class="card-animated"
                 />
             </section>
-            <p v-if="!loading && filteredUsers.length === 0" class="mensaje no-results">
+            <p v-if="!loading && filteredUsers.length === 0 && !error" class="mensaje no-results">
                 No hay usuarios que coincidan con "<strong>{{ filter }}</strong>"
             </p>
         </div>
