@@ -10,6 +10,7 @@ const path = computed((): string => {
   if (pathURL.includes("/estructura")) return "Modularidad";
   if (pathURL.includes("/sintaxis")) return "Sintaxis";
   if (pathURL.includes("/ejemplos")) return "Ejemplos";
+  if (pathURL.includes("/typescript")) return "TypsScript";
   
   return "Home";
 });  
@@ -19,6 +20,7 @@ const navItems: {name: string, route: string}[] = [
     {name: 'Modularidad', route: '/estructura'},
     {name: 'Sintaxis', route: '/sintaxis'},
     {name: 'Ejemplos', route: '/ejemplos'},
+    {name: 'TypsScript', route: '/typescript'},
 ]
 
 </script>

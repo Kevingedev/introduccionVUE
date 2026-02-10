@@ -26,6 +26,11 @@ const router = createRouter({
       name: 'UserDetail',
       component: () => import('../views/MisEjemplosView.vue'),
     },
+    {
+      path: '/typescript',
+      name: 'typescript',
+      component: () => import('../views/users/UserView.vue'),
+    }
 
   ],
 })
